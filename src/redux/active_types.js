@@ -1,0 +1,6 @@
+export const CHANGING_COLOR = 'CHANGING_COLOR'
+export const ADD_NEW_COLOR = 'ADD_NEW_COLOR'
+export const REMOVE_COLOR = 'REMOVE_COLOR'
+
+export const GET_PHOTO = 'FORM/GET_PHOTO'
+export const DRAGGING = 'FORM/DRAGGING'
