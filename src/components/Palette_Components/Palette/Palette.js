@@ -6,7 +6,7 @@ import ColorWrapper from '../ColorWrapper/ColorWrapper';
 import ColorPicker from '../ColorPicker/ColorPicker';
 import Button from '../../Button/Button';
 import styled from 'styled-components';
-import { addNewColor } from '../../../redux/action_creators';
+import { addNewColor, showColorPicker } from '../../../redux/action_creators';
 
 const PaletteContainer = styled.div`
     width: 343px;
@@ -16,7 +16,7 @@ const PaletteContainer = styled.div`
     align-items: center;
 `     
 
-const Palette = ({newColor,addNewColor}) => {
+const Palette = ({newColor, addNewColor, colorPicker, showColorPicker}) => {
 
     const onClickHandler = () => {
         let colorRGB 
@@ -27,7 +27,7 @@ const Palette = ({newColor,addNewColor}) => {
         if (newColor.source === 'hsv') {
             colorRGB = tinycolor(newColor).toRgbString()
         }
-
+        showColorPicker()
         addNewColor(colorRGB, v4());
 
     }
@@ -36,20 +36,25 @@ const Palette = ({newColor,addNewColor}) => {
         <PaletteContainer>
             <ColorWrapper/>
             <Button text = {'Добавить цвет'} onClick = { onClickHandler }/>
-            <ColorPicker color="orange"/>
+            { colorPicker === false 
+              ? ''
+              : <ColorPicker/>
+            }
         </PaletteContainer>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        newColor: state.palette.changingColor
+        newColor: state.palette.changingColor,
+        colorPicker: state.palette.showColorPicker
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        addNewColor: (color, id) => dispatch(addNewColor(color, id))
+        addNewColor: (color, id) => dispatch(addNewColor(color, id)),
+        showColorPicker: () => dispatch(showColorPicker())
     }
 }
 

@@ -3,7 +3,8 @@ import { CustomPicker } from "react-color";
 import { Hue, Saturation } from "react-color/lib/components/common";
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { changingColor } from '../../../redux/action_creators';
+import onClickOutside from "react-onclickoutside";
+import { changingColor, showColorPicker } from '../../../redux/action_creators';
 
 const PickerWrapper = styled.div`
     margin-top: 25px;
@@ -22,10 +23,12 @@ const SaturationWrapper = styled.div`
       cursor: pointer;
 `
 
-export const MyPicker = ({ changingColor, updateColor, }) => {
+const MyPicker = ({ changingColor, updateColor, showColorPicker }) => {
 
 
   const onChange = color => changingColor(color)
+  
+  MyPicker.handleClickOutside = () => showColorPicker();
 
   return (
     <PickerWrapper>
@@ -49,7 +52,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     changingColor: color => dispatch(changingColor(color)),
+    showColorPicker: () => dispatch(showColorPicker())
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CustomPicker(MyPicker));
+const clickOutsideConfig = {
+  handleClickOutside: () => MyPicker.handleClickOutside
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(onClickOutside(CustomPicker(MyPicker), clickOutsideConfig));

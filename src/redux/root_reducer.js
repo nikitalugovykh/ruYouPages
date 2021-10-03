@@ -1,9 +1,10 @@
 import { combineReducers } from "redux"
-import { ADD_NEW_COLOR, CHANGING_COLOR, DRAGGING, GET_PHOTO, REMOVE_COLOR } from "./active_types"
+import { ADD_NEW_COLOR, CHANGING_COLOR, DRAGGING, GET_PHOTO, REMOVE_COLOR, SHOW_COLOR_PICKER } from "./active_types"
 
 const paletteReducer = (
     state = {
         colors: [],
+        showColorPicker: false,
         changingColor: {h: 204.43875059789542, s: 1, v: 0.9996529134114583, source: 'hsv'}
         }, 
     action) => {
@@ -18,6 +19,8 @@ const paletteReducer = (
             return {...state, colors: [...state.colors, {color: action.color, id: action.id}]}
         case REMOVE_COLOR:
             return {...state, colors: state.colors.filter(color => color.id !== action.id)}
+        case SHOW_COLOR_PICKER:
+            return {...state, showColorPicker: !state.showColorPicker}
         default: 
             return state
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { removeColor } from '../../../redux/action_creators';
+import { removeColor, showColorPicker } from '../../../redux/action_creators';
 import removeIcon from './../../../Images/remove_icon.svg'
 
 const RemoveBtn = styled.div`
