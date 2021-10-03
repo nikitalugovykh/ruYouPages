@@ -1,4 +1,12 @@
-import { ADD_NEW_COLOR, CHANGING_COLOR, DRAGGING, GET_PHOTO, REMOVE_COLOR, SHOW_COLOR_PICKER } from "./active_types"
+import tinycolor from "tinycolor2"
+import { 
+    ADD_NEW_COLOR, 
+    CHANGING_COLOR, 
+    DRAGGING, GET_PHOTO, 
+    REMOVE_COLOR, 
+    SHOW_COLOR_PICKER, 
+    UPDATE_COLOR 
+} from "./active_types"
 
 export const changingColor = (color) => {
     return {
@@ -6,6 +14,14 @@ export const changingColor = (color) => {
         color,
     }
 }
+
+export const updateColor = (payload) => {
+    return {
+        type: UPDATE_COLOR,
+        payload,
+    }
+}
+
 export const addNewColor = (color, id) => {
     return {
         type: ADD_NEW_COLOR,

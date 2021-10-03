@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { removeColor, showColorPicker } from '../../../redux/action_creators';
+import { removeColor } from '../../../redux/action_creators';
 import removeIcon from './../../../Images/remove_icon.svg'
 
 const RemoveBtn = styled.div`
@@ -25,6 +25,7 @@ const Color = styled.div`
     border-radius: 5px; 
     justify-self: center;
     position: relative;
+    cursor: pointer;
     &:hover ${RemoveBtn} {
         visibility: visible;
         opacity: 1;
@@ -54,5 +55,11 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ColorItem)
+const mapStateToProps = state => {
+    return {
+        
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ColorItem)
 

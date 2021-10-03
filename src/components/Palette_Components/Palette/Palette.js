@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import tinycolor from 'tinycolor2';
 import { v4 } from 'uuid';
+import styled from 'styled-components';
+import { addNewColor, showColorPicker } from '../../../redux/action_creators';
 import ColorWrapper from '../ColorWrapper/ColorWrapper';
 import ColorPicker from '../ColorPicker/ColorPicker';
 import Button from '../../Button/Button';
-import styled from 'styled-components';
-import { addNewColor, showColorPicker } from '../../../redux/action_creators';
 
 const PaletteContainer = styled.div`
     width: 343px;

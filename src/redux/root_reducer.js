@@ -1,11 +1,12 @@
 import { combineReducers } from "redux"
-import { ADD_NEW_COLOR, CHANGING_COLOR, DRAGGING, GET_PHOTO, REMOVE_COLOR, SHOW_COLOR_PICKER } from "./active_types"
+import { ADD_NEW_COLOR, CHANGING_COLOR, DRAGGING, GET_PHOTO, REMOVE_COLOR, SHOW_COLOR_PICKER, UPDATE_COLOR } from "./active_types"
 
 const paletteReducer = (
     state = {
         colors: [],
         showColorPicker: false,
-        changingColor: {h: 204.43875059789542, s: 1, v: 0.9996529134114583, source: 'hsv'}
+        changingColor: {h: 204.43875059789542, s: 1, v: 0.9996529134114583, source: 'hsv'},
+        changingColorRGB: ''
         }, 
     action) => {
 
@@ -16,7 +17,19 @@ const paletteReducer = (
                 changingColor: action.color
             }
         case ADD_NEW_COLOR:
-            return {...state, colors: [...state.colors, {color: action.color, id: action.id}]}
+            return {...state, colors: [...state.colors, {color: action.color, id: action.id, changeColor: true}]}
+        case UPDATE_COLOR:
+            return {...state, colors: state.colors.map(color => {
+
+                    if (color.changeColor === true) {
+                        if (typeof action.payload === 'boolean') {
+                            return {color: color.color, id: color.id, changeColor: action.payload} 
+                        } else {
+
+                            return {color: action.payload, id: color.id, changeColor: true} 
+                        }
+                    } return color})
+            }
         case REMOVE_COLOR:
             return {...state, colors: state.colors.filter(color => color.id !== action.id)}
         case SHOW_COLOR_PICKER:

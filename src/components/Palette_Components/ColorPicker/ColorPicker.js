@@ -4,10 +4,11 @@ import { Hue, Saturation } from "react-color/lib/components/common";
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import onClickOutside from "react-onclickoutside";
-import { changingColor, showColorPicker } from '../../../redux/action_creators';
+import { changingColor, showColorPicker, updateColor } from '../../../redux/action_creators';
+import tinycolor from 'tinycolor2';
 
 const PickerWrapper = styled.div`
-    margin-top: 25px;
+      margin-top: 25px;
 `
 const HueWrapper = styled.div`
       height: 10px;
@@ -23,12 +24,31 @@ const SaturationWrapper = styled.div`
       cursor: pointer;
 `
 
-const MyPicker = ({ changingColor, updateColor, showColorPicker }) => {
+const MyPicker = ({ changingColor, updateColor, showColorPicker, updateColorItem }) => {
 
 
-  const onChange = color => changingColor(color)
+  const onChange = color => {
+
+    let colorRGB 
+
+        if(color.source === 'hsl') {
+            colorRGB = tinycolor({...color, l: 0.5}).toRgbString()
+        } 
+        if (color.source === 'hsv') {
+            colorRGB = tinycolor(color).toRgbString()
+        }
+
+    changingColor(color)
+    updateColorItem(colorRGB)
+
+
+  }
   
-  MyPicker.handleClickOutside = () => showColorPicker();
+  MyPicker.handleClickOutside = () => {
+    showColorPicker();
+    updateColorItem(false)
+
+  }
 
   return (
     <PickerWrapper>
@@ -52,7 +72,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     changingColor: color => dispatch(changingColor(color)),
-    showColorPicker: () => dispatch(showColorPicker())
+    showColorPicker: () => dispatch(showColorPicker()),
+    updateColorItem: (color) => dispatch(updateColor(color))
   }
 }
 
