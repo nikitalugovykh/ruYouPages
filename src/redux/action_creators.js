@@ -1,6 +1,6 @@
-import tinycolor from "tinycolor2"
 import { 
     ADD_NEW_COLOR, 
+    CHANGE_PERMISSION_UPDATE_COLOR, 
     CHANGING_COLOR, 
     DRAGGING, GET_PHOTO, 
     REMOVE_COLOR, 
@@ -19,6 +19,13 @@ export const updateColor = (payload) => {
     return {
         type: UPDATE_COLOR,
         payload,
+    }
+}
+
+export const changePermissionForUpdateColor = (id) => {
+    return {
+        type: CHANGE_PERMISSION_UPDATE_COLOR,
+        id,
     }
 }
 

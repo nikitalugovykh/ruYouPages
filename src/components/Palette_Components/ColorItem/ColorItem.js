@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import { removeColor } from '../../../redux/action_creators';
+import tinycolor from 'tinycolor2';
+import { changePermissionForUpdateColor, changingColor, removeColor, showColorPicker } from '../../../redux/action_creators';
 import removeIcon from './../../../Images/remove_icon.svg'
 
 const RemoveBtn = styled.div`
@@ -36,30 +37,36 @@ const Color = styled.div`
     }
 `
 
-const ColorItem = ({ color, id, remove }) => {
+const ColorItem = ({ color, id, remove, showColorPicker, updateColorPicker, permissionUpdateColor}) => {
     
-    const onClickHandler = () => {
+    const removeClickHandler = (ev) => {
+        ev.stopPropagation()
         remove(id)
     }
 
+    const colorClickHandler = () => {
+        let colorHSV = tinycolor(color).toHsv()
+        showColorPicker()
+        permissionUpdateColor(id)
+        updateColorPicker(colorHSV)
+    }
+
     return (
-        <Color color = { color }>
-            <RemoveBtn onClick = { onClickHandler }/>
+        <Color color = { color } onClick = { colorClickHandler }>
+            <RemoveBtn onClick = { removeClickHandler }/>
         </Color>
     )
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        remove: (id) => dispatch(removeColor(id))
+        remove: (id) => dispatch(removeColor(id)),
+        showColorPicker: () => dispatch(showColorPicker()),
+        updateColorPicker: (color) => dispatch(changingColor(color)),
+        permissionUpdateColor: (id) => dispatch(changePermissionForUpdateColor(id))
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ColorItem)
+export default connect(null, mapDispatchToProps)(ColorItem)
 
