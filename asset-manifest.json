@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ruYouPages/static/css/main.74de88b5.chunk.css",
-    "main.js": "/ruYouPages/static/js/main.e0cd8906.chunk.js",
-    "main.js.map": "/ruYouPages/static/js/main.e0cd8906.chunk.js.map",
+    "main.js": "/ruYouPages/static/js/main.a93baf65.chunk.js",
+    "main.js.map": "/ruYouPages/static/js/main.a93baf65.chunk.js.map",
     "runtime-main.js": "/ruYouPages/static/js/runtime-main.86f4cc35.js",
     "runtime-main.js.map": "/ruYouPages/static/js/runtime-main.86f4cc35.js.map",
     "static/js/2.7558497f.chunk.js": "/ruYouPages/static/js/2.7558497f.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.86f4cc35.js",
     "static/js/2.7558497f.chunk.js",
     "static/css/main.74de88b5.chunk.css",
-    "static/js/main.e0cd8906.chunk.js"
+    "static/js/main.a93baf65.chunk.js"
   ]
 }
