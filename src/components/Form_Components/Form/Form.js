@@ -38,12 +38,12 @@ const Form = ({
 
         fetch('https://test-job.pixli.app/send.php', {
         method: 'POST',
-        body: {
+        body: JSON.stringify({
             "action" : 'send_data',
             "id": 1,
             "image": photo,
             "contact": [f.firstName, f.secondName, f.patronymic]
-        },
+        }),
         headers: {
             'Content-type': 'application/json; charset=UTF-8',
         },
