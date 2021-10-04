@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ruYouPages/static/css/main.74de88b5.chunk.css",
+    "main.js": "/ruYouPages/static/js/main.e0cd8906.chunk.js",
+    "main.js.map": "/ruYouPages/static/js/main.e0cd8906.chunk.js.map",
+    "runtime-main.js": "/ruYouPages/static/js/runtime-main.86f4cc35.js",
+    "runtime-main.js.map": "/ruYouPages/static/js/runtime-main.86f4cc35.js.map",
+    "static/js/2.7558497f.chunk.js": "/ruYouPages/static/js/2.7558497f.chunk.js",
+    "static/js/2.7558497f.chunk.js.map": "/ruYouPages/static/js/2.7558497f.chunk.js.map",
+    "index.html": "/ruYouPages/index.html",
+    "static/css/main.74de88b5.chunk.css.map": "/ruYouPages/static/css/main.74de88b5.chunk.css.map",
+    "static/js/2.7558497f.chunk.js.LICENSE.txt": "/ruYouPages/static/js/2.7558497f.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/ruYouPages/static/media/GothamProRegular.aa3126db.eot",
+    "static/media/add_photo.adaec920.svg": "/ruYouPages/static/media/add_photo.adaec920.svg",
+    "static/media/remove_icon.f8c2dd58.svg": "/ruYouPages/static/media/remove_icon.f8c2dd58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.86f4cc35.js",
+    "static/js/2.7558497f.chunk.js",
+    "static/css/main.74de88b5.chunk.css",
+    "static/js/main.e0cd8906.chunk.js"
+  ]
+}
