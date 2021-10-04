@@ -1,17 +1,17 @@
 @font-face {
   font-family: 'Gotham Pro';
-  src: local('Gotham Pro'), url('./fonts/GothamProBold.eot');
-  src: local('Gotham Pro') url('./fonts/GothamProBold.ttf') format('truetype'),
-                            url('./fonts/GothamProBold.woff') format('woff');
+  src: url('./fonts/GothamProBold.eot');
+  src: url('./fonts/GothamProBold.ttf') format('truetype'),
+       url('./fonts/GothamProBold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Gotham Pro';
-  src: local('Gotham Pro'), url('./fonts/GothamProRegular.eot');
-  src: local('Gotham Pro') url('./fonts/GothamProRegular.ttf') format('truetype'),
-                            url('./fonts/GothamProRegular.woff') format('woff');
+  src: url('./fonts/GothamProRegular.eot');
+  src: url('./fonts/GothamProRegular.ttf') format('truetype'),
+      url('./fonts/GothamProRegular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

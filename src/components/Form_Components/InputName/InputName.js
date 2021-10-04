@@ -30,15 +30,17 @@ const InputComponent = styled.input`
     opacity: ${({type}) => type === 'file' ? 0: 1};
     visibility: ${({type}) => type === 'file' ? 'hidden' : 'visible'};
 `
-const Input = ({labelName, placeholder, type}) => (
+const Input = ({labelName, placeholder, type, onChange, id, value}) => (
 
     <InputContainer>
-        <Label htmlFor={`input_${labelName}`} type = {type}>{labelName}</Label>
+        <Label htmlFor={ id } type = {type}>{labelName}</Label>
         <InputComponent
-            id = {`input_${labelName}`} 
+            id = { id } 
             placeholder = {placeholder} 
             type = {type}
             accept = ".png, .jpg, .jpeg image/*"
+            onChange = { onChange }
+            value = { value }
         />
     </InputContainer>
 )

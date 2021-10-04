@@ -23,9 +23,9 @@ const Btn = styled.button`
     }
 `
 
-const Button = ({text, onClick}) => {
+const Button = ({text, onClick, type}) => {
     return (
-        <Btn onClick = { onClick }>{text}</Btn>
+        <Btn onClick = { onClick } type = { type }>{text}</Btn>
     )
 }
 

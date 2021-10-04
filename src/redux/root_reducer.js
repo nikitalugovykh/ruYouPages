@@ -5,5 +5,5 @@ import { paletteReducer } from "./reducers/paletteReducer"
 
 export const rootReducer = combineReducers({
     palette: paletteReducer,
-    form: formReducer
+    form: formReducer,
 })

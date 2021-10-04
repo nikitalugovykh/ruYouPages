@@ -2,10 +2,16 @@ import {
     ADD_NEW_COLOR, 
     CHANGE_PERMISSION_UPDATE_COLOR, 
     CHANGING_COLOR, 
-    DRAGGING, GET_PHOTO, 
+    DECREASE_DRAGG_COUNTER, 
+    DRAGGING, DRAGG_COUNTER, GET_PHOTO, 
+    INCREASE_DRAGG_COUNTER, 
     REMOVE_COLOR, 
     SHOW_COLOR_PICKER, 
-    UPDATE_COLOR 
+    UPDATE_COLOR, 
+    UPDATE_FIRST_NAME, 
+    UPDATE_PATRONYMIC_NAME,
+    UPDATE_RESPONSE,
+    UPDATE_SECOND_NAME
 } from "./active_types"
 
 export const changingColor = (color) => {
@@ -49,14 +55,59 @@ export const showColorPicker = () => {
     }
 }
 
+
+export const updateFirstName = (name) => {
+    return {
+        type: UPDATE_FIRST_NAME,
+        name
+    }
+}
+
+export const updateSecondName = (name) => {
+    return {
+        type: UPDATE_SECOND_NAME,
+        name
+    }
+}
+export const updatePatronymicName = (name) => {
+    return {
+        type: UPDATE_PATRONYMIC_NAME,
+        name
+    }
+}
+
 export const updatePhoto = (data) => {
     return {
         type: GET_PHOTO,
         data
     }
 }
+
+export const updateResponse = (data) => {
+    return {
+        type: UPDATE_RESPONSE,
+        data
+    }
+}
 export const dragging = () => {
     return {
         type: DRAGGING,
+    }
+}
+
+export const setDragCounter = (num) => {
+    return {
+        type: DRAGG_COUNTER,
+        num
+    }
+}
+export const increaseDragCounter = () => {
+    return {
+        type: INCREASE_DRAGG_COUNTER,
+    }
+}
+export const decreaseDragCounter = () => {
+    return {
+        type: DECREASE_DRAGG_COUNTER,
     }
 }

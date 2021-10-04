@@ -35,7 +35,7 @@ const Palette = ({newColor, addNewColor, colorPicker, showColorPicker}) => {
     return (
         <PaletteContainer>
             <ColorWrapper/>
-            <Button text = {'Добавить цвет'} onClick = { onClickHandler }/>
+            <Button text = {'Добавить цвет'} onClick = { onClickHandler } type = {'button'}/>
             { colorPicker === false 
               ? ''
               : <ColorPicker/>

@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   background-color: #000;
   border-radius: 28px;
   font-family: Gotham Pro;
-  padding: 51px;
+  padding: 40px 51px;
 `
 
 const App = (props) => {

@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router, 
   Switch,
   Route, 
-  Link 
+  NavLink 
 } from "react-router-dom";
 import styled from 'styled-components';
 import Form from '../Form_Components/Form/Form';
@@ -18,7 +18,7 @@ const Ul = styled.ul`
 `
 
 
-const NavLink = styled(Link)`
+const StyledNavLink  = styled(NavLink)`
     font-size: 17px;
     line-height: 22px;
     text-align: center;
@@ -26,7 +26,6 @@ const NavLink = styled(Link)`
     text-decoration-line: underline;
     color: #FFFFFF;
     text-decoration: none;
-
 `
 
 
@@ -37,10 +36,10 @@ const Header = (props) => {
         <nav>
           <Ul>
             <li>
-              <NavLink to="/">Форма</NavLink>
+              <StyledNavLink to="/" activeStyle={{ borderBottom: '0.5px solid #fff'}} exact>Форма</StyledNavLink>
             </li>
             <li>
-              <NavLink to="/palette">Палитра</NavLink>
+              <StyledNavLink to="/palette" activeStyle={{ borderBottom: '0.5px solid #fff'}}>Палитра</StyledNavLink>
             </li>
           </Ul>
         </nav>
